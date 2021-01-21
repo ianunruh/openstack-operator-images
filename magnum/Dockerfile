@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ianunruh/openstack-base:victoria-focal
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y magnum-api magnum-conductor python3-magnumclient && \
