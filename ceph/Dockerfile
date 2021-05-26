@@ -1,8 +1,8 @@
-FROM ubuntu:focal
+FROM ubuntu:focal-20210416
 
 ARG UBUNTU_RELEASE=focal
 ARG CEPH_KEY=https://download.ceph.com/keys/release.asc
-ARG CEPH_REPO=https://download.ceph.com/debian-octopus/
+ARG CEPH_REPO=https://download.ceph.com/debian-pacific/
 
 ADD ${CEPH_KEY} /tmp/ceph-release.key
 
