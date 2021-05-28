@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20210416
+FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 ARG UBUNTU_RELEASE=focal
 ARG CEPH_KEY=https://download.ceph.com/keys/release.asc

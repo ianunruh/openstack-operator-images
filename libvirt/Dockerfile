@@ -1,4 +1,4 @@
-FROM ianunruh/openstack-ceph-base:latest
+FROM registry.kcloud.io/kcloud/openstack-operator-images/ceph:latest
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y \

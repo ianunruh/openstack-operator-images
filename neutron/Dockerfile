@@ -1,5 +1,11 @@
-FROM ubuntu:focal-20210416
+FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 RUN apt update && \
-    DEBIAN_FRONTEND=noninteractive apt install -y neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent && \
-    rm -rf /var/lib/apt/lists/*
+    DEBIAN_FRONTEND=noninteractive apt install -y \
+        neutron-dhcp-agent \
+        neutron-l3-agent \
+        neutron-linuxbridge-agent \
+        neutron-metadata-agent \
+        neutron-plugin-ml2 \
+        neutron-server \
+    && rm -rf /var/lib/apt/lists/*

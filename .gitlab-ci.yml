@@ -1,0 +1,122 @@
+stages:
+- build-base
+- build-ceph
+- build
+
+.build:
+  stage: build
+  only:
+    refs:
+    - master
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+  - export CURRENT_PROJECT=$(echo $CI_JOB_NAME | sed 's/build-//g')
+  - cd $CURRENT_PROJECT
+  - mkdir -p /kaniko/.docker
+  - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  - /kaniko/executor --destination $CI_REGISTRY_IMAGE/$CURRENT_PROJECT:latest --cache=true
+
+build-base:
+  extends: .build
+  stage: build-base
+  only:
+    changes:
+    - base/**
+
+build-ceph:
+  extends: .build
+  stage: build-ceph
+  only:
+    changes:
+    - base/**
+    - ceph/**
+
+build-barbican:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - barbican/**
+
+build-cinder:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - ceph/**
+    - cinder/**
+
+build-glance:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - ceph/**
+    - glance/**
+
+build-heat:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - heat/**
+
+build-horizon:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - horizon/**
+
+build-keystone:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - keystone/**
+
+build-libvirt:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - ceph/**
+    - libvirt/**
+
+build-magnum:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - magnum/**
+
+build-neutron:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - neutron/**
+
+build-nova:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - ceph/**
+    - nova/**
+
+build-octavia:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - octavia/**
+
+build-placement:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - placement/**

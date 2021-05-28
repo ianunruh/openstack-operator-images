@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20210416
+FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
@@ -6,5 +6,5 @@ RUN apt update && \
         octavia-health-manager \
         octavia-housekeeping \
         octavia-worker \
-        python3-octaviaclient && \
-    rm -rf /var/lib/apt/lists/*
+        python3-octaviaclient \
+    && rm -rf /var/lib/apt/lists/*
