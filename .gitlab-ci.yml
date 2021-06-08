@@ -16,7 +16,7 @@ stages:
   - cd $CURRENT_PROJECT
   - mkdir -p /kaniko/.docker
   - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-  - /kaniko/executor --context $(pwd) --destination $CI_REGISTRY_IMAGE/$CURRENT_PROJECT:latest --cache=true
+  - /kaniko/executor --context $(pwd) --destination $CI_REGISTRY_IMAGE/$CURRENT_PROJECT:latest --destination $CI_REGISTRY_IMAGE/$CURRENT_PROJECT:$CI_COMMIT_SHA --cache=true
 
 build-base:
   extends: .build
