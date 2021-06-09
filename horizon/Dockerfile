@@ -6,3 +6,5 @@ RUN apt update && \
         python3-heat-dashboard \
         python3-magnum-ui \
     && rm -rf /var/lib/apt/lists/*
+
+COPY httpd.conf /etc/apache2/conf-available/openstack-dashboard.conf

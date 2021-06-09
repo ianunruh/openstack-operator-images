@@ -7,3 +7,5 @@ RUN apt update && \
         cinder-scheduler \
         cinder-volume \
     && rm -rf /var/lib/apt/lists/*
+
+COPY httpd.conf /etc/apache2/conf-available/cinder-wsgi.conf

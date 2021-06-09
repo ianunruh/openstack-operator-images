@@ -5,3 +5,5 @@ RUN apt update && \
         placement-api \
         python3-pymysql \
     && rm -rf /var/lib/apt/lists/*
+
+COPY httpd.conf /etc/apache2/sites-available/placement-api.conf

@@ -6,3 +6,5 @@ RUN apt update && \
         barbican-keystone-listener \
         barbican-worker \
     && rm -rf /var/lib/apt/lists/*
+
+COPY httpd.conf /etc/apache2/conf-available/barbican-api.conf

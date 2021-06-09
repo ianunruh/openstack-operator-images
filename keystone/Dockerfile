@@ -5,3 +5,5 @@ RUN apt update && \
         keystone \
         python3-openstackclient \
     && rm -rf /var/lib/apt/lists/*
+
+COPY httpd.conf /etc/apache2/sites-available/keystone.conf
