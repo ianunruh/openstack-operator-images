@@ -5,4 +5,6 @@ RUN apt update && \
         heat-api \
         heat-api-cfn \
         heat-engine \
+        python3-vitragelclient \
+        python3-zunclient \
     && rm -rf /var/lib/apt/lists/*
