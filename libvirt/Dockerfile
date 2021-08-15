@@ -8,6 +8,7 @@ RUN apt update && \
         kmod \
         libvirt-daemon-system \
         nova-common \
+        openvswitch-switch \
         pm-utils \
         qemu \
         qemu-block-extra \
