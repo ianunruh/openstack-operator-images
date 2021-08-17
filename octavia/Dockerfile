@@ -6,5 +6,6 @@ RUN apt update && \
         octavia-health-manager \
         octavia-housekeeping \
         octavia-worker \
+        openvswitch-switch \
         python3-octaviaclient \
     && rm -rf /var/lib/apt/lists/*
