@@ -1,5 +1,9 @@
 FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
+ARG UID=42482
+
+RUN useradd -r -u ${UID} -d /var/lib/placement placement
+
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
         placement-api \

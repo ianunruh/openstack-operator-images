@@ -1,5 +1,9 @@
 FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
+ARG UID=42435
+
+RUN useradd -r -u ${UID} -d /var/lib/neutron neutron
+
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
         haproxy \

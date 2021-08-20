@@ -1,5 +1,9 @@
 FROM registry.kcloud.io/kcloud/openstack-operator-images/ceph:latest
 
+ARG UID=42407
+
+RUN useradd -r -u ${UID} -d /var/lib/cinder cinder
+
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
         cinder-api \
