@@ -7,7 +7,8 @@ RUN useradd -r -u ${UID} -d /var/lib/openstack-dashboard horizon
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
         openstack-dashboard \
-        python3-octavia-dashboard \
+        python3-heat-dashboard \
+        python3-magnum-ui \
     && rm -rf /var/lib/apt/lists/*
 
 COPY httpd.conf /etc/apache2/conf-available/openstack-dashboard.conf
