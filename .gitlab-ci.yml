@@ -92,6 +92,14 @@ build-magnum:
     - base/**
     - magnum/**
 
+build-manila:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - ceph/**
+    - manila/**
+
 build-neutron:
   extends: .build
   only:
