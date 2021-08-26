@@ -2,7 +2,7 @@ FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 ARG UID=42428
 
-RUN useradd -r -u ${UID} -d /var/lib/magnum magnum
+RUN useradd -r -U -u ${UID} -m -d /var/lib/magnum magnum
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
