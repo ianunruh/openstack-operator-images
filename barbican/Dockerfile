@@ -12,6 +12,6 @@ RUN apt update && \
         barbican-worker \
     && rm -rf /var/lib/apt/lists/*
 
-RUN a2dissite 000-default
+RUN a2dissite 000-default && truncate -s0 /etc/apache2/ports.conf
 
 COPY httpd.conf /etc/apache2/conf-available/barbican-api.conf
