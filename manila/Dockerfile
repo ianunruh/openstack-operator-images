@@ -2,7 +2,8 @@ FROM registry.kcloud.io/kcloud/openstack-operator-images/ceph:latest
 
 ARG UID=42429
 
-RUN useradd -r -U -u ${UID} -m -d /var/lib/manila manila
+RUN groupadd -g ${UID} manila
+RUN useradd -u ${UID} -g ${UID} -r -m -d /var/lib/manila manila
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \

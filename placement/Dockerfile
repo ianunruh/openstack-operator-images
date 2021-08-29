@@ -2,7 +2,8 @@ FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 ARG UID=42482
 
-RUN useradd -r -U -u ${UID} -m -d /var/lib/placement placement
+RUN groupadd -g ${UID} placement
+RUN useradd -u ${UID} -g ${UID} -r -m -d /var/lib/placement placement
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \

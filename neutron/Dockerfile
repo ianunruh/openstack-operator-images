@@ -2,7 +2,8 @@ FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
 
 ARG UID=42435
 
-RUN useradd -r -U -u ${UID} -m -d /var/lib/neutron neutron
+RUN groupadd -g ${UID} neutron
+RUN useradd -u ${UID} -g ${UID} -r -m -d /var/lib/neutron neutron
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
