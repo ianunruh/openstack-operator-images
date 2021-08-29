@@ -11,4 +11,6 @@ RUN apt update && \
         python3-openstackclient \
     && rm -rf /var/lib/apt/lists/*
 
+RUN a2dissite 000-default
+
 COPY httpd.conf /etc/apache2/sites-available/keystone.conf

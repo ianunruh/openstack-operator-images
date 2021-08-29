@@ -11,4 +11,6 @@ RUN apt update && \
         python3-pymysql \
     && rm -rf /var/lib/apt/lists/*
 
+RUN a2dissite 000-default
+
 COPY httpd.conf /etc/apache2/sites-available/placement-api.conf
