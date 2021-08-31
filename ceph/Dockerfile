@@ -1,4 +1,5 @@
-FROM registry.kcloud.io/kcloud/openstack-operator-images/base:latest
+ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/base:latest
+FROM $BASE_IMAGE
 
 ARG UBUNTU_RELEASE=focal
 ARG CEPH_KEY=https://download.ceph.com/keys/release.asc

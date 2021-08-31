@@ -1,4 +1,5 @@
-FROM ubuntu:focal-20210723
+ARG BASE_IMAGE=ubuntu:focal-20210827
+FROM $BASE_IMAGE
 
 ARG CLOUDARCHIVE_REPO="deb http://ubuntu-cloud.archive.canonical.com/ubuntu focal-updates/wallaby main"
 

@@ -1,4 +1,5 @@
-FROM registry.kcloud.io/kcloud/openstack-operator-images/ceph:latest
+ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/ceph:latest
+FROM $BASE_IMAGE
 
 ARG UID=42436
 
