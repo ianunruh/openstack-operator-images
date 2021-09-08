@@ -10,4 +10,5 @@ RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
         senlin-api \
         senlin-engine \
+        python3-pymysql \
     && rm -rf /var/lib/apt/lists/*
