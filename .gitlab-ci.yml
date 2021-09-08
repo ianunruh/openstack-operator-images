@@ -128,3 +128,10 @@ build-placement:
     changes:
     - base/**
     - placement/**
+
+build-senlin:
+  extends: .build
+  only:
+    changes:
+    - base/**
+    - senlin/**
