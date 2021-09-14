@@ -12,6 +12,7 @@ RUN apt update && \
         python3-heat-dashboard \
         python3-magnum-ui \
         python3-manila-ui \
+        python3-senlin-dashboard \
     && rm -rf /var/lib/apt/lists/*
 
 RUN a2dissite 000-default && truncate -s0 /etc/apache2/ports.conf
