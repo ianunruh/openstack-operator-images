@@ -20,4 +20,5 @@ RUN apt update && \
         qemu-block-extra \
         qemu-efi \
         qemu-kvm \
+        virt-top \
     && rm -rf /var/lib/apt/lists/*
