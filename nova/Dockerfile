@@ -15,3 +15,6 @@ RUN apt update && \
         nova-scheduler \
         ssh \
     && rm -rf /etc/ssh/ssh_host_* /var/lib/apt/lists/*
+
+RUN curl -o /usr/local/bin/nova-health-probe -sL https://opendev.org/openstack/openstack-helm/raw/commit/034a83201af437dab724a75b231e73a198ae17b6/nova/templates/bin/_health-probe.py.tpl && \
+    chmod +x /usr/local/bin/nova-health-probe
