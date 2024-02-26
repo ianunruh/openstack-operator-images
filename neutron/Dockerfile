@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/base:latest
+ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/base:master
 FROM $BASE_IMAGE
 
 ARG UID=42435
