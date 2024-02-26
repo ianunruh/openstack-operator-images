@@ -24,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -35,13 +35,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/base
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: base
         push: true
@@ -53,10 +53,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -64,13 +64,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/ceph
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: ceph
         push: true
@@ -84,10 +84,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -95,13 +95,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/barbican
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: barbican
         push: ${{ github.event_name != 'pull_request' }}
@@ -115,10 +115,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -126,13 +126,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/cinder
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: cinder
         push: ${{ github.event_name != 'pull_request' }}
@@ -146,10 +146,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -157,13 +157,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/glance
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: glance
         push: ${{ github.event_name != 'pull_request' }}
@@ -177,10 +177,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -188,13 +188,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/heat
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: heat
         push: ${{ github.event_name != 'pull_request' }}
@@ -208,10 +208,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -219,13 +219,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/horizon
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: horizon
         push: ${{ github.event_name != 'pull_request' }}
@@ -239,10 +239,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -250,13 +250,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/keystone
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: keystone
         push: ${{ github.event_name != 'pull_request' }}
@@ -270,10 +270,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -281,13 +281,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/libvirt
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: libvirt
         push: ${{ github.event_name != 'pull_request' }}
@@ -301,10 +301,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -312,13 +312,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/magnum
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: magnum
         push: ${{ github.event_name != 'pull_request' }}
@@ -332,10 +332,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -343,13 +343,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/manila
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: manila
         push: ${{ github.event_name != 'pull_request' }}
@@ -363,10 +363,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -374,13 +374,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/neutron
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: neutron
         push: ${{ github.event_name != 'pull_request' }}
@@ -394,10 +394,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -405,13 +405,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/nova
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: nova
         push: ${{ github.event_name != 'pull_request' }}
@@ -425,10 +425,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -436,13 +436,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/octavia
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: octavia
         push: ${{ github.event_name != 'pull_request' }}
@@ -456,10 +456,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -467,13 +467,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/placement
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: placement
         push: ${{ github.event_name != 'pull_request' }}
@@ -487,10 +487,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Login to container registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -498,13 +498,13 @@ jobs:
 
     - name: Extract metadata for Docker
       id: meta
-      uses: docker/metadata-action@v3
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/ianunruh/openstack-operator-images/senlin
         tags: ${{ env.IMAGE_TAGS }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v5
       with:
         context: senlin
         push: ${{ github.event_name != 'pull_request' }}
