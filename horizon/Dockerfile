@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/base:latest
+ARG BASE_IMAGE=ghcr.io/ianunruh/openstack-operator-images/base:master
 FROM $BASE_IMAGE
 
 ARG UID=42420
@@ -13,7 +13,9 @@ RUN apt update && \
         python3-magnum-ui \
         python3-manila-ui \
         python3-senlin-dashboard \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && \
+    /usr/share/openstack-dashboard/manage.py collectstatic --noinput --clear && \
+    /usr/share/openstack-dashboard/manage.py compress --force
 
 RUN a2dissite 000-default && truncate -s0 /etc/apache2/ports.conf
 
