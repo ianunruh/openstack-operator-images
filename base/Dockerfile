@@ -1,7 +1,7 @@
-ARG BASE_IMAGE=ubuntu:focal-20210827
+ARG BASE_IMAGE=ubuntu:jammy-20240212
 FROM $BASE_IMAGE
 
-ARG CLOUDARCHIVE_REPO="deb http://ubuntu-cloud.archive.canonical.com/ubuntu focal-updates/wallaby main"
+ARG CLOUDARCHIVE_REPO="deb http://ubuntu-cloud.archive.canonical.com/ubuntu jammy-updates/bobcat main"
 
 RUN apt update && \
     apt install -y \
