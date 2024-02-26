@@ -14,7 +14,7 @@ RUN apt update && \
         libhiredis0.14 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.4.11/libapache2-mod-auth-openidc_2.4.11-1.focal+1_amd64.deb -o libapache2-mod-auth-openidc.deb && \
+RUN curl -sL https://github.com/OpenIDC/mod_auth_openidc/releases/download/v2.4.15.3/libapache2-mod-auth-openidc_2.4.15.3-1.jammy_amd64.deb -o libapache2-mod-auth-openidc.deb && \
     dpkg -i libapache2-mod-auth-openidc.deb && \
     rm libapache2-mod-auth-openidc.deb
 
