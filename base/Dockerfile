@@ -7,7 +7,6 @@ RUN apt update && \
     apt install -y \
         jq \
         python3 \
-        python3-memcache \
         ubuntu-cloud-keyring \
         iproute2 \
         netcat \
